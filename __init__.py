@@ -189,8 +189,8 @@ async def async_setup(hass, config):
                             needle = 'Authtoken saved to configuration file'
                             if output_str[0:len(needle)] == needle:
                                 _LOGGER.debug(output_str)
-                                # command_line = [ngrok_exec, 'tcp', ha_local_ip_address + ':' + str(ha_local_port)]
-                                command_line = [ngrok_exec + ' tcp ' + ha_local_ip_address + ':' + str(ha_local_port)]
+                                # command_line = [ngrok_exec, 'http', ha_local_ip_address + ':' + str(ha_local_port)]
+                                command_line = [ngrok_exec + ' http ' + ha_local_ip_address + ':' + str(ha_local_port)]
                                 # create thread and starts it
                                 hass.data[DOMAIN]['thread'] = threading.Thread(target=thread_run_ngrok, args=[command_line])
                                 hass.data[DOMAIN]['thread'].start()
